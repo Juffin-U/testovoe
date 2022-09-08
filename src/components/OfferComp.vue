@@ -43,27 +43,27 @@
           <div class="sectionsM">
             <button
               class="section"
-              id="0"
+              id="11"
               @click="choosingSO(0), chengeHeight(0)"
             >
-              {{ sectionsArr[0] }}
-              <div class="line" id="3"></div>
+              <div class="textSection">{{ sectionsArr[0] }}</div>
+              <div class="line" id="14"></div>
             </button>
             <button
               class="section"
-              id="1"
+              id="12"
               @click="choosingSO(1), chengeHeight(1)"
             >
-              {{ sectionsArr[1] }}
-              <div class="line" id="4"></div>
+              <div class="textSection">{{ sectionsArr[1] }}</div>
+              <div class="line" id="15"></div>
             </button>
             <button
               class="section"
-              id="2"
+              id="13"
               @click="choosingSO(2), chengeHeight(2)"
             >
-              {{ sectionsArr[2] }}
-              <div class="line" id="5"></div>
+              <div class="textSection">{{ sectionsArr[2] }}</div>
+              <div class="line" id="16"></div>
             </button>
           </div>
           <div class="arrows">
@@ -123,7 +123,7 @@ export default {
     chengeHeight(id) {
       console.log(this.sliderData[id].length);
       document.getElementById(10).style.marginBottom = `${
-        (this.sliderData[id].length - 2) * 338
+        (this.sliderData[id].length - 2) * 338 + 80
       }px`;
     },
     choosingSO(id) {
@@ -136,11 +136,19 @@ export default {
         for (let i = 0; i < 3; i++) {
           if (i != this.a) {
             document.getElementById(i.toString()).style.color = "#3D3C3C";
+            document.getElementById((i + 11).toString()).style.color =
+              "#3D3C3C";
             document.getElementById((3 + i).toString()).style.backgroundColor =
+              "#efefef";
+            document.getElementById((14 + i).toString()).style.backgroundColor =
               "#efefef";
           } else {
             document.getElementById(i.toString()).style.color = "#BCA56A";
+            document.getElementById((i + 11).toString()).style.color =
+              "#BCA56A";
             document.getElementById((3 + i).toString()).style.backgroundColor =
+              "#BCA56A";
+            document.getElementById((14 + i).toString()).style.backgroundColor =
               "#BCA56A";
           }
         }
@@ -150,9 +158,17 @@ export default {
             document.getElementById(i.toString()).style.color = "#3D3C3C";
             document.getElementById((3 + i).toString()).style.backgroundColor =
               "#efefef";
+            document.getElementById((i + 11).toString()).style.color =
+              "#3D3C3C";
+            document.getElementById((14 + i).toString()).style.backgroundColor =
+              "#efefef";
           } else {
+            document.getElementById((i + 11).toString()).style.color =
+              "#BCA56A";
             document.getElementById(i.toString()).style.color = "#BCA56A";
             document.getElementById((3 + i).toString()).style.backgroundColor =
+              "#BCA56A";
+            document.getElementById((14 + i).toString()).style.backgroundColor =
               "#BCA56A";
           }
           this.a = id;
@@ -305,23 +321,42 @@ export default {
     flex-direction: row;
   }
   .section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     padding: 0;
     border: none;
-    width: 157px;
+    height: 90%;
+    width: 147px;
     font-family: Euclid Circular B;
-    font-size: 18px;
+    font-size: 15px;
     text-align: center;
     color: #3d3c3c;
     cursor: pointer;
     background-color: transparent;
+  }
+  .textSection {
+    width: 100%;
+    height: 99%;
+    margin-bottom: 9px;
+    padding-top: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .arrows {
     display: none;
   }
   .linePanel {
     width: 100%;
+    margin-top: -5px;
     height: 1px;
     background-color: #efefef;
+  }
+  .line {
+    width: 100%;
+    height: 1px;
   }
   .slidersPanel {
     width: 80%;

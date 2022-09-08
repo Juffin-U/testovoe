@@ -124,6 +124,7 @@ export default {
   .wavesAndFlower {
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 30px;
   }
   .waves {
     width: 182px;
@@ -178,6 +179,7 @@ export default {
     height: 64px;
     margin-top: 40px;
     margin-left: 25px;
+    margin-bottom: 30px;
     font-family: Euclid Circular B;
     font-size: 20px;
     text-align: start;

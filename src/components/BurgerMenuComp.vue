@@ -122,6 +122,8 @@ export default {
   mounted() {
     document.getElementById(100).style.backgroundColor =
       "rgba(217, 194, 135, 0.24)";
+    document.getElementById(100 + this.arrayOfListData.length).style.color =
+      "#D9C287";
     setInterval(this.next, 3000);
   },
   methods: {

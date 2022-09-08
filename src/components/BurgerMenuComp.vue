@@ -68,7 +68,7 @@
               <input
                 type="image"
                 class="sliderImg"
-                :src="require(`@/assets/image/Banner.png`)"
+                :src="require(`@/assets/image/${arrayOfPathOfImage[0]}`)"
               />
               <div class="sliderCorner">
                 <div class="cornerInfo">
@@ -122,8 +122,14 @@ export default {
   mounted() {
     document.getElementById(100).style.backgroundColor =
       "rgba(217, 194, 135, 0.24)";
+    setInterval(this.next, 3000);
   },
   methods: {
+    next() {
+      let buf = this.arrayOfPathOfImage[this.arrayOfPathOfImage.length - 1];
+      this.arrayOfPathOfImage.pop();
+      this.arrayOfPathOfImage.unshift(buf);
+    },
     testIdFunc(index) {
       let prevLen = 0;
       for (let i = 0; i < this.idList; i++) {
@@ -167,7 +173,13 @@ export default {
   },
   components: { ButtonComponent, SocialButton },
   data() {
-    return { idList: 0, subListID: 0, prevID: 100, subPrevID: 100 };
+    return {
+      idList: 0,
+      subListID: 0,
+      prevID: 100,
+      subPrevID: 100,
+      arrayOfPathOfImage: this.pathOfImage,
+    };
   },
   props: {
     pathOfImage: {

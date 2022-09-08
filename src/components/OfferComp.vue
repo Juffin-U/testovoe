@@ -70,13 +70,13 @@
             <input
               type="image"
               class="sectionsArrow"
-              @click="(this.a = a - 1), choosingSO()"
+              @click="sliderLeft()"
               :src="require(`@/assets/image/${sectionsArrowArr[0]}`)"
             />
             <input
               type="image"
               class="sectionsArrow"
-              @click="(this.a = a + 1), choosingSO()"
+              @click="sliderRight()"
               :src="require(`@/assets/image/${sectionsArrowArr[1]}`)"
             />
           </div>
@@ -85,7 +85,7 @@
         <div class="slidersPanel">
           <slider-comp
             class="sliderItem"
-            v-for="data in sliderData[this.a]"
+            v-for="data in arrOfIndex[this.a]"
             :key="data"
             :discount="data.discount"
             :condition="data.text"
@@ -103,13 +103,23 @@ export default {
   name: "offerComp",
   components: { SliderComp },
   data() {
-    return { a: 0 };
+    return { a: 0, arrOfIndex: this.sliderData };
   },
   mounted() {
     document.getElementById(0).style.color = "#BCA56A";
     document.getElementById((3).toString()).style.backgroundColor = "#BCA56A";
   },
   methods: {
+    sliderLeft() {
+      let buf = this.arrOfIndex[this.a][0];
+      this.arrOfIndex[this.a].shift();
+      this.arrOfIndex[this.a].push(buf);
+    },
+    sliderRight() {
+      let buf = this.arrOfIndex[this.a][this.arrOfIndex[this.a].length - 1];
+      this.arrOfIndex[this.a].pop();
+      this.arrOfIndex[this.a].unshift(buf);
+    },
     chengeHeight(id) {
       console.log(this.sliderData[id].length);
       document.getElementById(10).style.marginBottom = `${
@@ -380,7 +390,6 @@ export default {
   }
 
   .text {
-    width: 132px;
     margin-left: 16px;
     height: 24px;
   }

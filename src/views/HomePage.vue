@@ -19,6 +19,7 @@
         :image-arr="burgerData.arrOfImages"
         :button-arr="burgerData.arrayOfButtonsNames"
         :arr-image-index="burgerData.ArrIndex"
+        :path-of-image="burgerData.sliderData.imagePaths"
       ></BurgerMenuComp>
     </div>
     <IntroComp
@@ -244,6 +245,16 @@ export default {
         ],
         arrOfImages: ["Facebook.png", "Twitter.png", "Instagram.png"],
         arrOfImage: ["Facebook2.png", "Twitter2.png", "Instagram2.png"],
+        sliderData: {
+          imagePaths: [
+            "Banner.png",
+            "1b.png",
+            "11.png",
+            "13.png",
+            "1b.png",
+            "14.png",
+          ],
+        },
         arrayOfButtonsNames: {
           name: "ПОДРОБНЕЕ",
           color: "#d9c287",
